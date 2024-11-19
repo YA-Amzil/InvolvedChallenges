@@ -3,6 +3,7 @@
 using System.Diagnostics.Contracts;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Involved.HTF.Common.Dto;
 
 public class HackTheFutureClient : HttpClient
@@ -128,6 +129,33 @@ public class HackTheFutureClient : HttpClient
         }
     }
 
+    public async Task<string[]> GetQuatralianNumbers()
+    {
+        var response = await GetAsync("/api/a/hard/sample");
+        var jsonResponse = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("You weren't able to get the Quatralian numbers, did you provide the correct credentials?");
+
+        // Stel dat de response een object is met een veld genaamd "numbers" dat de array bevat
+        var parsedResponse = JsonSerializer.Deserialize<QuatralianResponse>(jsonResponse);
+        return parsedResponse?.Numbers ?? Array.Empty<string>();
+    }
+
+    private class QuatralianResponse
+    {
+        public string[] Numbers { get; set; }
+    }
+
+    public async Task PostQuatralianResult(string result)
+    {
+        var response = await this.PostAsJsonAsync("/api/a/hard/sample", result);
+        if (!response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            throw new Exception($"You weren't able to post the result, did you provide the correct credentials? Response: {response.StatusCode} - {responseContent}");
+        }
+    }
 }
 
 public class AuthResponse
