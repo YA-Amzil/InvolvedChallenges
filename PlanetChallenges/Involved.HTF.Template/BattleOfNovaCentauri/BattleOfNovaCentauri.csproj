@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Involved.HTF.Common\Involved.HTF.Common.csproj" />
+  </ItemGroup>
+
 </Project>
