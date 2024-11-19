@@ -3,6 +3,7 @@
 using System.Diagnostics.Contracts;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Involved.HTF.Common.Dto;
 
 public class HackTheFutureClient : HttpClient
 {
@@ -87,6 +88,25 @@ public class HackTheFutureClient : HttpClient
         else
         {
             Console.WriteLine("You were able to post the decoded sample, you can now check the results.");
+        }
+    }
+
+    public async Task<BattleOfNovaCentauriDto> GetSample()
+    {
+        var response = await GetAsync("/api/a/medium/puzzle");
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("You weren't able to get the sample, did you provide the correct credentials?");
+        return await response.Content.ReadFromJsonAsync<BattleOfNovaCentauriDto>();
+    }
+
+    public async Task PostResult(string winningTeam, int remainingHealth)
+    {
+        var data = new { winningTeam, remainingHealth };
+        var response = await this.PostAsJsonAsync("/api/a/medium/puzzle", data);
+        if (!response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            throw new Exception($"You weren't able to post the result, did you provide the correct credentials? Response: {response.StatusCode} - {responseContent}");
         }
     }
 
