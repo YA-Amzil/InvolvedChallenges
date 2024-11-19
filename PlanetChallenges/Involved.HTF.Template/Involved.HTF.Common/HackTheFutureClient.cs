@@ -110,6 +110,24 @@ public class HackTheFutureClient : HttpClient
         }
     }
 
+    public async Task<ZyphoraTheWaitingWorldDto> GetZyphoraData()
+    {
+        var response = await GetAsync("/api/b/medium/sample");
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("You weren't able to get the sample data, did you provide the correct credentials?");
+        return await response.Content.ReadFromJsonAsync<ZyphoraTheWaitingWorldDto>();
+    }
+
+    public async Task PostZyphoraResult(string result)
+    {
+        var response = await this.PostAsJsonAsync("/api/b/medium/sample", result);
+        if (!response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            throw new Exception($"You weren't able to post the result, did you provide the correct credentials? Response: {response.StatusCode} - {responseContent}");
+        }
+    }
+
 }
 
 public class AuthResponse
