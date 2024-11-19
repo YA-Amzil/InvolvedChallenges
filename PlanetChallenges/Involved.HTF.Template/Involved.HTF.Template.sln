@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zyphora", "Zyphora\Zyphora.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateOfQuatralis", "GateOfQuatralis\GateOfQuatralis.csproj", "{0AF60760-1E68-4833-B611-541AA48FC9CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostLabyrinthOfTheCosmos", "LostLabyrinthOfTheCosmos\LostLabyrinthOfTheCosmos.csproj", "{D03D4008-82A3-4399-A674-4D4A454F1C40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03D4008-82A3-4399-A674-4D4A454F1C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03D4008-82A3-4399-A674-4D4A454F1C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03D4008-82A3-4399-A674-4D4A454F1C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03D4008-82A3-4399-A674-4D4A454F1C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

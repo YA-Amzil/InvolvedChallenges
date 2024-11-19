@@ -3,6 +3,7 @@
 using System.Diagnostics.Contracts;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using Involved.HTF.Common.Dto;
 
@@ -155,6 +156,21 @@ public class HackTheFutureClient : HttpClient
             var responseContent = await response.Content.ReadAsStringAsync();
             throw new Exception($"You weren't able to post the result, did you provide the correct credentials? Response: {response.StatusCode} - {responseContent}");
         }
+    }
+
+    public async Task<string> GetMaze()
+    {
+        var response = await GetAsync("/api/b/hard/sample");
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("You weren't able to get the maze data, did you provide the correct credentials?"); var mazeData = await response.Content.ReadAsStringAsync();
+        return mazeData;
+    }
+
+    public async Task PostMazeResult(int result)
+    {
+        var jsonContent = new StringContent(JsonSerializer.Serialize(new { result }), Encoding.UTF8, "application/json"); var response = await this.PostAsync("/api/b/hard/sample", jsonContent);
+        if (!response.IsSuccessStatusCode)
+        { var responseContent = await response.Content.ReadAsStringAsync(); throw new Exception($"You weren't able to post the result, did you provide the correct credentials? Response: {response.StatusCode} - {responseContent}"); }
     }
 }
 
