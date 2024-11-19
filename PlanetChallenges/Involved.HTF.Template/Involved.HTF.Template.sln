@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleOfNovaCentauri", "Bat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zyphora", "Zyphora\Zyphora.csproj", "{40421DA4-B1DB-4E76-BAE0-6329EB28DDBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateOfQuatralis", "GateOfQuatralis\GateOfQuatralis.csproj", "{0AF60760-1E68-4833-B611-541AA48FC9CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{40421DA4-B1DB-4E76-BAE0-6329EB28DDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40421DA4-B1DB-4E76-BAE0-6329EB28DDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40421DA4-B1DB-4E76-BAE0-6329EB28DDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF60760-1E68-4833-B611-541AA48FC9CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
